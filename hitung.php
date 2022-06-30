@@ -9,13 +9,14 @@
 <body>
 
 <?php
+    $jml_matkul = 0;
     session_start();
     $jml_matkul = $_GET['jumlah_matkul'];
     $bobot = [];
     $nm_matkul = [];
 
 
-    if ($_GET['jumlah_matkul'] == NULL){
+    if ($jml_matkul == 0){
         session_destroy();
         echo "error";
     }
