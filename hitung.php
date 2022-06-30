@@ -9,15 +9,16 @@
 <body>
 
 <?php
+	$jml_matkul = 0;
     session_start();
     $jml_matkul = $_GET['jumlah_matkul'];
     $bobot = [];
     $nm_matkul = [];
 
 
-    if ($_GET['jumlah_matkul'] == NULL){
+    if ($jml_matkul == 0){
         session_destroy();
-        echo "error";
+        echo "ERROR : anda belum memasukan jumlah mata kuliah !";
     }
 
     if(isset($_POST['kirim'])){
@@ -64,11 +65,11 @@
 
     <div class="form">
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <?php for($i = 0; $i < $jml_matkul; $i++){ ?>
-            <label>   Mata kuliah ke-<?php echo $i ?> : </label>
-            <input type="text" name='nama_matkul[]' placeholder="input text">
+        <?php for($i = 0; $i < $jml_matkul; $i++; $j++){ ?>
+            <label>   Mata kuliah ke-<?php echo $j+1 ?> : </label>
+            <input type="text" name='nama_matkul[]' placeholder="input nama matakuliah">
             <label>   Jumlah SKS : </label>
-            <input type="number" name='jumlah_sks[]' placeholder="input numeric" required>
+            <input type="number" name='jumlah_sks[]' placeholder="input jumlah SKS" required>
             <label>   Nilai : </label>
             <select name='nilai_matkul[]'>
     		    <option value="A" >A</option>
