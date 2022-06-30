@@ -31,13 +31,13 @@
             $bobot[$i] = $jml_sks[$i]*$A;
         } else if ($nilai == 'AB'){
             $AB = 3.5;
-            $bobot[$i] = $jml_sks[$i]*$B;
+            $bobot[$i] = $jml_sks[$i]*$AB;
         } else if ($nilai == 'B'){
             $B = 3;
             $bobot[$i] = $jml_sks[$i]*$B;
         } else if ($nilai == 'BC'){
             $BC = 2.5;
-            $bobot[$i] = $jml_sks[$i]*$B;
+            $bobot[$i] = $jml_sks[$i]*$BC;
         } else if ($nilai == 'C'){
             $C = 2;
             $bobot[$i] = $jml_sks[$i]*$C;
@@ -64,9 +64,12 @@
 ?>
 
     <div class="form">
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <?php for($i = 0; $i < $jml_matkul; $i++; $j++){ ?>
-            <label>   Mata kuliah ke-<?php echo $j+1 ?> : </label>
+    <form method="post" action="hitung.php?jumlah_matkul=<?php echo $jml_matkul?>">
+    
+        <?php $j =0; for($i = 0; $i < $jml_matkul; $i++){
+              ?>
+
+            <label>   Mata kuliah ke-<?php echo $j+1?> : </label>
             <input type="text" name='nama_matkul[]' placeholder="input nama matakuliah">
             <label>   Jumlah SKS : </label>
             <input type="number" name='jumlah_sks[]' placeholder="input jumlah SKS" required>
@@ -81,11 +84,11 @@
                 <option value="E" >E</option>				
 	        </select>
         <br></br>
-        <?php } ?>
+        <?php $j++; } ?>
         </br><input type="submit" name="kirim" value="Hitung">
 
         <?php if(isset($_POST['kirim'])){ ?>
-            <h3><?php  echo "Hasil IPK/IPS : ".round((float)$IP,2); ?></h3>
+            <h3><?php  echo "IPK/IPS anda : ".round((float)$IP,2); ?></h3>
             <p><a href="https://facebook.com/alcopoune.id"> © : alcopoune</a></p>
         <?php } ?>
 
