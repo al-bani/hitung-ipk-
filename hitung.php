@@ -9,16 +9,14 @@
 <body>
 
 <?php
-	$jml_matkul = 0;
     session_start();
+    $jml_matkul = 0;
     $jml_matkul = $_GET['jumlah_matkul'];
     $bobot = [];
     $nm_matkul = [];
 
-
-    if ($jml_matkul == 0){
-        session_destroy();
-        echo "ERROR : anda belum memasukan jumlah mata kuliah !";
+    if ($jml_matkul == 0 and $jml_matkul == NULL and $jml_matkul < 0){
+        echo "ERROR : anda belum memasukkan nilai Matakuliah !";
     }
 
     if(isset($_POST['kirim'])){
@@ -60,6 +58,14 @@
 
     (float) $IP = $total_bobot/$total_sks;
 
+    if ($IP > 3.00){
+        $sks_diambil = 24;
+    } else  if ($IP <= 3.00 and $IP > 2.00){
+        $sks_diambil = 20;
+    } else  if ($IP <= 2.00){
+        $sks_diambil = 18;
+    }
+
 }
 ?>
 
@@ -85,11 +91,12 @@
 	        </select>
         <br></br>
         <?php $j++; } ?>
-        </br><input type="submit" name="kirim" value="Hitung">
+        </br><input type="submit" name="kirim" value="Hitung"  <?php if ($jml_matkul == 0){  echo "hidden='hidden'"; } ?>
 
         <?php if(isset($_POST['kirim'])){ ?>
             <h3><?php  echo "IPK/IPS anda : ".round((float)$IP,2); ?></h3>
-            <p><a href="https://facebook.com/alcopoune.id"> © : alcopoune</a></p>
+            <h3><?php  echo "SKS yang bisa diambil : $sks_diambil SKS"; ?></h3>
+            <p><a href="https://alcupu.carrd.co/"> © : alcupu itu siapah</a></p>
         <?php } ?>
 
     </div>
