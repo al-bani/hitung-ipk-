@@ -39,7 +39,7 @@
                 </br>
             <?php $j++; endfor; ?>
             <input type="submit" name="submit" value="hitung" class="btn">
-            <p><a class="link" href="https://alcupu.herokuapp.com/">kembali</a></p>
+            <p><a class="link" href="/input/">kembali</a></p>
 
         <?php if(isset($_POST['submit'])): ?>
             <h3><?php echo "IPK anda : ".round((float)$IPK,2); ?></h3>
