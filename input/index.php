@@ -1,4 +1,4 @@
-<?php require($_SERVER['DOCUMENT_ROOT']."/PHP/belajar/hitungipk/config.php");
+<?php require($_SERVER['DOCUMENT_ROOT']."/config.php");
 
     $_SESSION['jumlah_matkul'] = 0;
     $_SESSION['tipe_nilai'] = '';
@@ -20,7 +20,7 @@
     
 <?php if ($_SESSION['tipe'] == "ips") { ?>
     <div class="medium-form">
-    <form method="get" action="/PHP/belajar/hitungipk/ips/index.php">
+    <form method="get" action="/ips/">
         <h2>Menghitung IPS anda</h2>
         <label for="jumlah_matkul" class="link" >Jumlah mata kuliah : </label>
         <input class="textbox" type="Number" name="jumlah_matkul" min="1" max="200" placeholder="input number" required>
@@ -31,19 +31,19 @@
             <option value="abjad">Nilai abjad</option>
         </select>
         <input type="submit" class="btn" name="submit">
-        <p> <a class="link"href="/PHP/belajar/hitungipk/">kembali</a></p>
+        <p> <a class="link"href="index.php">kembali</a></p>
     </form>
     </div>
 
    
 <?php } else if ($_SESSION['tipe'] == "ipk"){ ?>
     <div class="form">
-    <form method="get" action="/PHP/belajar/hitungipk/ipk/index.php">
+    <form method="get" action="/ipk/">
         <h2>Menghitung IPK anda</h2>
         <label for="jumlah_semester" class="link" >Masukkan Jumlah semester : </label>
         <input class="textbox" type="Number" name="jumlah_semester" max="14" min="1" placeholder="input number" required>
         <input type="submit" class="btn">
-        <p> <a class="link"href="/PHP/belajar/hitungipk/">kembali</a></p>
+        <p> <a class="link"href="index.php">kembali</a></p>
     </form>
     </div>
 <?php } ?>
