@@ -31,7 +31,7 @@
             <option value="abjad">Nilai abjad</option>
         </select>
         <input type="submit" class="btn" name="submit">
-        <p> <a class="link"href="index.php">kembali</a></p>
+        <p> <a class="link"href="/index.php">kembali</a></p>
     </form>
     </div>
 
@@ -43,7 +43,7 @@
         <label for="jumlah_semester" class="link" >Masukkan Jumlah semester : </label>
         <input class="textbox" type="Number" name="jumlah_semester" max="14" min="1" placeholder="input number" required>
         <input type="submit" class="btn">
-        <p> <a class="link"href="index.php">kembali</a></p>
+        <p> <a class="link"href="/index.php">kembali</a></p>
     </form>
     </div>
 <?php } ?>
