@@ -1,5 +1,5 @@
 
-<?php require($_SERVER['DOCUMENT_ROOT']."/PHP/belajar/hitungipk/config.php");
+<?php require($_SERVER['DOCUMENT_ROOT']."/config.php");
 
     $jml_matkul = $_GET['jumlah_matkul'];
     $type_n = $_GET['tipe_nilai'];
@@ -7,7 +7,7 @@
     $nm_matkul = [];
 
     if (empty($_GET['jumlah_matkul']) || empty($_GET['tipe_nilai'])){
-        header("Location: /PHP/belajar/hitungipk/error.php");
+        header("Location: /error.php");
     }
 
     if(isset($_POST['kirim'])){
@@ -89,7 +89,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menghitung IPS</title>
-    <link rel="stylesheet" type="text/css" href="/PHP/belajar/hitungipk/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
     <?php if($type_n == "abjad"){?>
@@ -115,7 +115,7 @@
                 <br></br>
             <?php $j++; } ?>
         <input type="submit" name="kirim" class="btn" value="Hitung"  <?php if ($jml_matkul == 0){  echo "hidden='hidden'"; } ?>>
-        <a class="link" href="/PHP/belajar/hitungipk/input/">kembali</a>
+        <a class="link" href="/input/">kembali</a>
 
     <?php } else if($type_n == "num"){ ?>
         <div class="long-form">
@@ -131,10 +131,10 @@
                 <br></br>
                 <?php $j++; } ?>
             <input class="btn" type="submit" name="kirim" value="Hitung"  <?php if ($jml_matkul == 0){  echo "hidden='hidden'"; } ?>>
-            <a class="link" href="/PHP/belajar/hitungipk/input/">kembali</a>
+            <a class="link" href="/input/">kembali</a>
 
         <?php } else {
-            header("Location: error.php");
+            header("Location: /error.php");
         } ?>
 
         <?php if(isset($_POST['kirim'])){ ?>
