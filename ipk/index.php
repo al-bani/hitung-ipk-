@@ -1,8 +1,8 @@
-<?php require($_SERVER['DOCUMENT_ROOT']."/PHP/belajar/hitungipk/config.php");
+<?php require($_SERVER['DOCUMENT_ROOT']."/config.php");
     $jml_smt = $_GET['jumlah_semester'];
 
     if (empty($_GET['jumlah_semester'])){
-        header("Location:/PHP/belajar/hitungipk/error.php");
+        header("Location: /error.php");
     }
 
     if (isset($_POST['submit'])){
@@ -26,7 +26,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hitung IPK</title>
-    <link rel="stylesheet" type="text/css" href="/PHP/belajar/hitungipk/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
     <div class="form">
@@ -39,7 +39,7 @@
                 </br>
             <?php $j++; endfor; ?>
             <input type="submit" name="submit" value="hitung" class="btn">
-            <p><a class="link" href="/PHP/belajar/hitungipk/input/">kembali</a></p>
+            <p><a class="link" href="https://alcupu.herokuapp.com/">kembali</a></p>
 
         <?php if(isset($_POST['submit'])): ?>
             <h3><?php echo "IPK anda : ".round((float)$IPK,2); ?></h3>
